@@ -1,4 +1,4 @@
-namespace SpaceShip.Lib;
+namespace SpaceShip;
 
 public class Vector
 {
@@ -9,7 +9,7 @@ public class Vector
     {
         if (coordinates.Length == 0)
         {
-            throw new ArgumentException("not good, bro...");
+            throw new ArgumentException();
         }
 
         _coordinates = coordinates;
@@ -17,42 +17,38 @@ public class Vector
 
     public static Vector operator +(Vector a, Vector b)
     {
-        var i = 0;
-        var size = a.Size;
-        while (i < size)
+        if (a.Size != b.Size)
         {
-            a._coordinates[i] += b._coordinates[i];
-            i++;
+            throw new System.ArgumentException();
         }
 
-        return a;
+        return new Vector(a._coordinates.Zip(b._coordinates, (a, b) => a + b).ToArray());
+
     }
 
-    public static Vector operator -(Vector a, Vector b)
-    {
-        var i = 0;
-        var size = a.Size;
-        while (i < size)
-        {
-            a._coordinates[i] -= b._coordinates[i];
-            i++;
-        }
-
-        return a;
-    }
     public static bool operator ==(Vector a, Vector b)
     {
+        if (a.Size != b.Size)
+        {
+            throw new System.ArgumentException();
+        }
+
         return b.Equals(a);
     }
 
     public static bool operator !=(Vector a, Vector b)
     {
+        if (a.Size != b.Size)
+        {
+            throw new System.ArgumentException();
+        }
+
         return !(a == b);
     }
 
     public override int GetHashCode()
     {
-        throw new NotImplementedException();
+        return _coordinates.GetHashCode();
     }
 
     public override bool Equals(object? obj)

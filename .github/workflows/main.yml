@@ -2,10 +2,10 @@ name: Main
 
 on:
   push:
-    branches: ['main']
-  
+    branches: ['laba**']
+
   pull_request:
-    branches: ['main']
+    branches: ['rotation']
 
 
 jobs:

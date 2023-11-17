@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip.Tests\\SpaceShip.Tests.csproj": {}
+    "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip.Tests\\SpaceShip.Tests.csproj": {}
   },
   "projects": {
-    "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip.Tests\\SpaceShip.Tests.csproj": {
+    "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip.Tests\\SpaceShip.Tests.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip.Tests\\SpaceShip.Tests.csproj",
+        "projectUniqueName": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip.Tests\\SpaceShip.Tests.csproj",
         "projectName": "SpaceShip.Tests",
-        "projectPath": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip.Tests\\SpaceShip.Tests.csproj",
+        "projectPath": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip.Tests\\SpaceShip.Tests.csproj",
         "packagesPath": "C:\\Users\\nmada\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip.Tests\\obj\\",
+        "outputPath": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip.Tests\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nmada\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -28,8 +28,8 @@
           "net7.0": {
             "targetAlias": "net7.0",
             "projectReferences": {
-              "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip\\SpaceShip.csproj": {
-                "projectPath": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip\\SpaceShip.csproj"
+              "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip\\SpaceShip.csproj": {
+                "projectPath": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip\\SpaceShip.csproj"
               }
             }
           }
@@ -47,6 +47,18 @@
             "Microsoft.NET.Test.Sdk": {
               "target": "Package",
               "version": "[17.5.0, )"
+            },
+            "Moq": {
+              "target": "Package",
+              "version": "[4.18.2, )"
+            },
+            "SpecFlow": {
+              "target": "Package",
+              "version": "[3.9.74, )"
+            },
+            "SpecFlow.xUnit": {
+              "target": "Package",
+              "version": "[3.9.74, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -85,14 +97,14 @@
         }
       }
     },
-    "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip\\SpaceShip.csproj": {
+    "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip\\SpaceShip.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip\\SpaceShip.csproj",
+        "projectUniqueName": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip\\SpaceShip.csproj",
         "projectName": "SpaceShip",
-        "projectPath": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip\\SpaceShip.csproj",
+        "projectPath": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip\\SpaceShip.csproj",
         "packagesPath": "C:\\Users\\nmada\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip\\obj\\",
+        "outputPath": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\nmada\\AppData\\Roaming\\NuGet\\NuGet.Config",

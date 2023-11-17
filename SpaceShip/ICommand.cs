@@ -1,4 +1,4 @@
-namespace SpaceShip.Lib;
+namespace SpaceShip;
 
 public interface ICommand
 {

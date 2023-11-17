@@ -1,6 +1,6 @@
 using Moq;
 
-namespace SpaceBattle.Lib.Tests;
+namespace SpaceShip.Tests;
 
 public class MoveCommandTest
 {
@@ -33,7 +33,6 @@ public class MoveCommandTest
             ICommand moveCommand = new MoveCommand(movable.Object);
 
             moveCommand.Execute();
-            moveCommand.Check();
         }
         catch(System.Exception)
         {
@@ -53,7 +52,6 @@ public class MoveCommandTest
 
             ICommand moveCommand = new MoveCommand(movable.Object);
             moveCommand.Execute();
-            moveCommand.Check();
         }
         catch(System.Exception)
         {
@@ -71,12 +69,10 @@ public class MoveCommandTest
         {
             movable.SetupGet(m => m.Position).Returns(new Vector (12, 5)).Verifiable();
             movable.SetupGet(m => m.Velocity).Returns(new Vector ( -5, 3 )).Verifiable();
-            movable.SetupGet(m => m.MoveAbility).Returns(new MoveAbility(false)).Verifiable();
 
             ICommand moveCommand = new MoveCommand(movable.Object);
 
             moveCommand.Execute();
-            moveCommand.MoveAbilityCheck();
         }
         catch(System.Exception)
         {

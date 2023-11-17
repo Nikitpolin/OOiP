@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip\\SpaceShip.csproj",
+      "projectUniqueName": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip\\SpaceShip.csproj",
       "projectName": "SpaceShip",
-      "projectPath": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip\\SpaceShip.csproj",
+      "projectPath": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip\\SpaceShip.csproj",
       "packagesPath": "C:\\Users\\nmada\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\nmada\\Desktop\\ооаип\\SpaceShip\\obj\\",
+      "outputPath": "C:\\Users\\nmada\\Pictures\\Screenshots\\OOiP\\SpaceShip\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\nmada\\AppData\\Roaming\\NuGet\\NuGet.Config",
