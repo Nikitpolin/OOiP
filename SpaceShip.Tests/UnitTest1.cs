@@ -9,14 +9,14 @@ public class MoveCommandTest
     {
         var movable = new Mock<IMovable>();
 
-        movable.SetupGet(m => m.Position).Returns(new Vector ( 12, 5 )).Verifiable();
-        movable.SetupGet(m => m.Velocity).Returns(new Vector ( -5, 3 )).Verifiable();
+        movable.SetupGet(m => m.Position).Returns(new Vector(12, 5)).Verifiable();
+        movable.SetupGet(m => m.Velocity).Returns(new Vector(-5, 3)).Verifiable();
 
         ICommand moveCommand = new MoveCommand(movable.Object);
 
         moveCommand.Execute();
 
-        movable.VerifySet(m => m.Position = new Vector ( 7, 8 ), Times.Once);
+        movable.VerifySet(m => m.Position = new Vector(7, 8), Times.Once);
         movable.VerifyAll();
     }
 
@@ -27,14 +27,14 @@ public class MoveCommandTest
         var movable = new Mock<IMovable>();
         try
         {
-            movable.SetupGet(m => m.Position).Returns(new Vector ()).Verifiable();
-            movable.SetupGet(m => m.Velocity).Returns(new Vector ( -5, 3 )).Verifiable();
+            movable.SetupGet(m => m.Position).Returns(new Vector()).Verifiable();
+            movable.SetupGet(m => m.Velocity).Returns(new Vector(-5, 3)).Verifiable();
 
             ICommand moveCommand = new MoveCommand(movable.Object);
 
             moveCommand.Execute();
         }
-        catch(System.Exception)
+        catch (System.Exception)
         {
             var result = false;
             Assert.False(result);
@@ -47,13 +47,13 @@ public class MoveCommandTest
         var movable = new Mock<IMovable>();
         try
         {
-            movable.SetupGet(m => m.Position).Returns(new Vector (12, 5)).Verifiable();
-            movable.SetupGet(m => m.Velocity).Returns(new Vector ()).Verifiable();
+            movable.SetupGet(m => m.Position).Returns(new Vector(12, 5)).Verifiable();
+            movable.SetupGet(m => m.Velocity).Returns(new Vector()).Verifiable();
 
             ICommand moveCommand = new MoveCommand(movable.Object);
             moveCommand.Execute();
         }
-        catch(System.Exception)
+        catch (System.Exception)
         {
             var result = false;
             Assert.False(result);
@@ -67,14 +67,14 @@ public class MoveCommandTest
         var movable = new Mock<IMovable>();
         try
         {
-            movable.SetupGet(m => m.Position).Returns(new Vector (12, 5)).Verifiable();
-            movable.SetupGet(m => m.Velocity).Returns(new Vector ( -5, 3 )).Verifiable();
+            movable.SetupGet(m => m.Position).Returns(new Vector(12, 5)).Verifiable();
+            movable.SetupGet(m => m.Velocity).Returns(new Vector(-5, 3)).Verifiable();
 
             ICommand moveCommand = new MoveCommand(movable.Object);
 
             moveCommand.Execute();
         }
-        catch(System.Exception)
+        catch (System.Exception)
         {
             var result = false;
             Assert.False(result);
