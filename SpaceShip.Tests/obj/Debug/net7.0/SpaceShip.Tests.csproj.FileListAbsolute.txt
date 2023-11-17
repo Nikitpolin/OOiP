@@ -1,0 +1,5 @@
+C:\Users\nmada\Desktop\ооаип\SpaceShip.Tests\obj\Debug\net7.0\SpaceShip.Tests.csproj.AssemblyReference.cache
+C:\Users\nmada\Desktop\ооаип\SpaceShip.Tests\obj\Debug\net7.0\SpaceShip.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nmada\Desktop\ооаип\SpaceShip.Tests\obj\Debug\net7.0\SpaceShip.Tests.AssemblyInfoInputs.cache
+C:\Users\nmada\Desktop\ооаип\SpaceShip.Tests\obj\Debug\net7.0\SpaceShip.Tests.AssemblyInfo.cs
+C:\Users\nmada\Desktop\ооаип\SpaceShip.Tests\obj\Debug\net7.0\SpaceShip.Tests.csproj.CoreCompileInputs.cache

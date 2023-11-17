@@ -1,0 +1,12 @@
+C:\Users\nmada\Desktop\ооаип\SpaceShip\bin\Debug\net7.0\SpaceShip.deps.json
+C:\Users\nmada\Desktop\ооаип\SpaceShip\bin\Debug\net7.0\SpaceShip.dll
+C:\Users\nmada\Desktop\ооаип\SpaceShip\bin\Debug\net7.0\SpaceShip.pdb
+C:\Users\nmada\Desktop\ооаип\SpaceShip\obj\Debug\net7.0\SpaceShip.csproj.AssemblyReference.cache
+C:\Users\nmada\Desktop\ооаип\SpaceShip\obj\Debug\net7.0\SpaceShip.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\nmada\Desktop\ооаип\SpaceShip\obj\Debug\net7.0\SpaceShip.AssemblyInfoInputs.cache
+C:\Users\nmada\Desktop\ооаип\SpaceShip\obj\Debug\net7.0\SpaceShip.AssemblyInfo.cs
+C:\Users\nmada\Desktop\ооаип\SpaceShip\obj\Debug\net7.0\SpaceShip.csproj.CoreCompileInputs.cache
+C:\Users\nmada\Desktop\ооаип\SpaceShip\obj\Debug\net7.0\SpaceShip.dll
+C:\Users\nmada\Desktop\ооаип\SpaceShip\obj\Debug\net7.0\refint\SpaceShip.dll
+C:\Users\nmada\Desktop\ооаип\SpaceShip\obj\Debug\net7.0\SpaceShip.pdb
+C:\Users\nmada\Desktop\ооаип\SpaceShip\obj\Debug\net7.0\ref\SpaceShip.dll
