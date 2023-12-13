@@ -1,7 +1,12 @@
-name: TurnTest
+name: .NET
 
 on:
-  [workflow_dispatch, pull_request, push]
+  workflow_dispatch:
+    inputs:
+      reason:
+        description: "The reason for running the workflow"
+        required: true
+        default: "Manual run"
 
 jobs:
   build:
