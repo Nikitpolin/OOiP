@@ -1,4 +1,4 @@
-using Hwdtech.IoC;
+﻿using Hwdtech;
 
 namespace SpaceBattle.Lib
 {
