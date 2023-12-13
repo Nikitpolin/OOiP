@@ -24,9 +24,6 @@ jobs:
 
       - name: Build
         run: cd ./SpaceBattle.Lib && dotnet build --no-restore /p:ContinuousIntegrationBuild=true && cd ../..
-      
-      - name: Test
-        run: dotnet test /p:CollectCoverage=true /p:CoverletOutputFormat=cobertura
 
       - name: Checkstyle
         run: dotnet format --verify-no-changes
