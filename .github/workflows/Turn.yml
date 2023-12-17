@@ -22,7 +22,7 @@ jobs:
         run: cd SpaceBattle.Lib && dotnet build --no-restore /p:ContinuousIntegrationBuild=true && cd ../..
 
       - name: Format
-        run: cd dotnet format ./spacebattle.sln && cd ..
+        run: cd dotnet format 
 
       - name: Verify format
         run: cd dotnet format --verify-no-changes && cd ..
