@@ -1,4 +1,4 @@
-name: TurnTest
+name: Lab1 straight-line movement
 
 on:
   [workflow_dispatch, pull_request, push]
