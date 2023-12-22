@@ -1,0 +1,394 @@
+{
+  "SpaceBattle.Lib.dll": {
+    "C:\\Users\\nmada\\Desktop\\OOiP\\SpaceBattle.Lib\\MoveComand.cs": {
+      "MoveCommand": {
+        "System.Void MoveCommand::Execute()": {
+          "Lines": {
+            "10": 4,
+            "11": 4,
+            "12": 1
+          },
+          "Branches": []
+        },
+        "System.Void MoveCommand::.ctor(IMovable)": {
+          "Lines": {
+            "4": 4,
+            "5": 4,
+            "6": 4,
+            "7": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\nmada\\Desktop\\OOiP\\SpaceBattle.Lib\\Vector.cs": {
+      "Vector": {
+        "Vector Vector::op_Addition(Vector,Vector)": {
+          "Lines": {
+            "10": 2,
+            "11": 6,
+            "13": 2,
+            "14": 2
+          },
+          "Branches": []
+        },
+        "System.Boolean Vector::Equals(System.Object)": {
+          "Lines": {
+            "18": 3,
+            "19": 3,
+            "20": 1,
+            "21": 1,
+            "24": 2,
+            "25": 3
+          },
+          "Branches": [
+            {
+              "Line": 19,
+              "Offset": 7,
+              "EndOffset": 9,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 19,
+              "Offset": 7,
+              "EndOffset": 14,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 2
+            },
+            {
+              "Line": 24,
+              "Offset": 35,
+              "EndOffset": 37,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 1
+            },
+            {
+              "Line": 24,
+              "Offset": 35,
+              "EndOffset": 61,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Int32 Vector::GetHashCode()": {
+          "Lines": {
+            "28": 1,
+            "29": 1,
+            "30": 1
+          },
+          "Branches": []
+        },
+        "System.Boolean Vector::op_Equality(Vector,Vector)": {
+          "Lines": {
+            "33": 2,
+            "34": 2,
+            "35": 2
+          },
+          "Branches": []
+        },
+        "System.Boolean Vector::op_Inequality(Vector,Vector)": {
+          "Lines": {
+            "38": 1,
+            "39": 1,
+            "40": 1
+          },
+          "Branches": []
+        },
+        "System.Void Vector::.ctor(System.Int32[])": {
+          "Lines": {
+            "4": 15,
+            "5": 15,
+            "6": 15,
+            "7": 15
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\nmada\\Desktop\\OOiP\\SpaceBattle.Lib\\Rational.cs": {
+      "SpaceBattle.Rational": {
+        "System.Void SpaceBattle.Rational::DevideByZero(System.Int32)": {
+          "Lines": {
+            "22": 25,
+            "24": 25,
+            "25": 25,
+            "26": 24,
+            "27": 1,
+            "28": 1,
+            "29": 1,
+            "31": 24
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Rational::Sign()": {
+          "Lines": {
+            "34": 24,
+            "35": 24,
+            "36": 1,
+            "37": 1,
+            "38": 1,
+            "39": 1,
+            "41": 23,
+            "42": 23,
+            "43": 23,
+            "44": 23,
+            "45": 24
+          },
+          "Branches": [
+            {
+              "Line": 35,
+              "Offset": 19,
+              "EndOffset": 21,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 35,
+              "Offset": 19,
+              "EndOffset": 61,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 23
+            }
+          ]
+        },
+        "System.Void SpaceBattle.Rational::Minimize()": {
+          "Lines": {
+            "48": 26,
+            "50": 906,
+            "51": 1032,
+            "52": 26,
+            "54": 26,
+            "55": 26,
+            "56": 26
+          },
+          "Branches": []
+        },
+        "System.Boolean SpaceBattle.Rational::Equals(System.Object)": {
+          "Lines": {
+            "59": 3,
+            "60": 3,
+            "61": 3
+          },
+          "Branches": [
+            {
+              "Line": 60,
+              "Offset": 9,
+              "EndOffset": 11,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 2
+            },
+            {
+              "Line": 60,
+              "Offset": 23,
+              "EndOffset": 25,
+              "Path": 0,
+              "Ordinal": 2,
+              "Hits": 2
+            },
+            {
+              "Line": 60,
+              "Offset": 9,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            },
+            {
+              "Line": 60,
+              "Offset": 23,
+              "EndOffset": 41,
+              "Path": 1,
+              "Ordinal": 3,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Int32 SpaceBattle.Rational::GetHashCode()": {
+          "Lines": {
+            "63": 2
+          },
+          "Branches": []
+        },
+        "SpaceBattle.Rational SpaceBattle.Rational::op_Addition(SpaceBattle.Rational,SpaceBattle.Rational)": {
+          "Lines": {
+            "66": 2,
+            "67": 2,
+            "68": 2,
+            "69": 2,
+            "70": 2,
+            "71": 2,
+            "72": 2
+          },
+          "Branches": []
+        },
+        "System.Boolean SpaceBattle.Rational::op_Equality(SpaceBattle.Rational,SpaceBattle.Rational)": {
+          "Lines": {
+            "75": 2,
+            "76": 2,
+            "77": 2
+          },
+          "Branches": [
+            {
+              "Line": 76,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 76,
+              "Offset": 13,
+              "EndOffset": 31,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 1
+            }
+          ]
+        },
+        "System.Boolean SpaceBattle.Rational::op_Inequality(SpaceBattle.Rational,SpaceBattle.Rational)": {
+          "Lines": {
+            "80": 4,
+            "81": 4,
+            "82": 4
+          },
+          "Branches": [
+            {
+              "Line": 81,
+              "Offset": 13,
+              "EndOffset": 15,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 1
+            },
+            {
+              "Line": 81,
+              "Offset": 13,
+              "EndOffset": 34,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 3
+            }
+          ]
+        },
+        "System.Void SpaceBattle.Rational::.ctor(System.Int32,System.Int32)": {
+          "Lines": {
+            "10": 25,
+            "11": 25,
+            "12": 25,
+            "14": 25,
+            "15": 24,
+            "17": 24,
+            "18": 24,
+            "19": 24
+          },
+          "Branches": []
+        },
+        "System.Boolean SpaceBattle.Rational::<Minimize>b__5_0(System.Int32)": {
+          "Lines": {},
+          "Branches": [
+            {
+              "Line": 50,
+              "Offset": 8,
+              "EndOffset": 10,
+              "Path": 0,
+              "Ordinal": 0,
+              "Hits": 331
+            },
+            {
+              "Line": 50,
+              "Offset": 8,
+              "EndOffset": 23,
+              "Path": 1,
+              "Ordinal": 1,
+              "Hits": 549
+            }
+          ]
+        }
+      }
+    },
+    "C:\\Users\\nmada\\Desktop\\OOiP\\SpaceBattle.Lib\\Turnable.cs": {
+      "SpaceBattle.TurnCommand": {
+        "System.Void SpaceBattle.TurnCommand::Execute()": {
+          "Lines": {
+            "17": 4,
+            "18": 4,
+            "19": 1
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.TurnCommand::.ctor(SpaceBattle.ITurnable)": {
+          "Lines": {
+            "12": 4,
+            "13": 4,
+            "14": 4,
+            "15": 4
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\nmada\\Desktop\\OOiP\\SpaceBattle.Lib\\EmplyCommand.cs": {
+      "SpaceBattle.Lib.EmptyCommand": {
+        "System.Void SpaceBattle.Lib.EmptyCommand::Execute()": {
+          "Lines": {
+            "5": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\nmada\\Desktop\\OOiP\\SpaceBattle.Lib\\EndMovementCommand.cs": {
+      "SpaceBattle.Lib.EndMovementCommand": {
+        "System.Void SpaceBattle.Lib.EndMovementCommand::Execute()": {
+          "Lines": {
+            "12": 1,
+            "13": 1,
+            "14": 1,
+            "15": 1,
+            "16": 1,
+            "17": 1
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Lib.EndMovementCommand::.ctor(SpaceBattle.Lib.IEndable)": {
+          "Lines": {
+            "9": 2
+          },
+          "Branches": []
+        }
+      }
+    },
+    "C:\\Users\\nmada\\Desktop\\OOiP\\SpaceBattle.Lib\\InjectCommand.cs": {
+      "SpaceBattle.Lib.InjectCommand": {
+        "System.Void SpaceBattle.Lib.InjectCommand::Execute()": {
+          "Lines": {
+            "9": 1
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Lib.InjectCommand::Inject(ICommand)": {
+          "Lines": {
+            "11": 2
+          },
+          "Branches": []
+        },
+        "System.Void SpaceBattle.Lib.InjectCommand::.ctor(ICommand)": {
+          "Lines": {
+            "7": 4
+          },
+          "Branches": []
+        }
+      }
+    }
+  }
+}
