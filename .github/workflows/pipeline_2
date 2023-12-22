@@ -1,4 +1,4 @@
-name: Lab2
+name: Lab22
 
 on:
   [workflow_dispatch, pull_request, push]
