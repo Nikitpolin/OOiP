@@ -1,4 +1,4 @@
-name: Lab1 straight-line movement
+name: Lab2
 
 on:
   [workflow_dispatch, pull_request, push]
