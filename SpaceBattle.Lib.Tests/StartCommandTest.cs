@@ -1,8 +1,5 @@
-using System;
-using System.Collections.Generic;
-using Hwdtech;
+﻿using Hwdtech;
 using Hwdtech.Ioc;
-using Moq;
 
 namespace SpaceBattle.Lib.Tests;
 
