@@ -1,4 +1,4 @@
-name: TurnTest
+name: Lab222
 
 on:
   [workflow_dispatch, pull_request, push]
@@ -20,6 +20,9 @@ jobs:
 
       - name: Build
         run: cd SpaceBattle.Lib && dotnet build --no-restore /p:ContinuousIntegrationBuild=true && cd ../..
+
+      - name: Verify format
+        run: dotnet format --verify-no-changes && cd ..
 
       - name: SpaceBattle test
         run: cd ./SpaceBattle.Lib.Tests/ && dotnet test /p:CollectCoverage=true
