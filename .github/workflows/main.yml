@@ -2,7 +2,7 @@ name: Main
 
 on:
   push:
-    branches: ['Lab**']
+    branches: ['lab**']
   
   pull_request:
     branches: ['main']
@@ -31,4 +31,3 @@ jobs:
 
       - name: Checkstyle
         run: dotnet format --verify-no-changes
-        
