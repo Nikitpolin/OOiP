@@ -2,8 +2,8 @@
 
 public class ActionCommand : ICommand
 {
-    private readonly Action<object[]> _function;
-    private readonly object[] _args;
+    public readonly Action<object[]> _function;
+    public readonly object[] _args;
 
     public ActionCommand(Action<object[]> function, object[] args)
     {

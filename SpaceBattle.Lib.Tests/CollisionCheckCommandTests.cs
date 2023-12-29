@@ -3,7 +3,7 @@ using Hwdtech.Ioc;
 using Moq;
 using SpaceBattle.Lib;
 
-namespace SpaceBattle.Tests;
+namespace SpaceBattle.Lib.Tests;
 public class DetectCollisionCommandTest
 {
     private static void BuildAndRegisterTree()
