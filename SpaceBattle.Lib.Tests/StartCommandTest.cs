@@ -1,9 +1,11 @@
-﻿using Hwdtech;
+﻿using System.Collections.Generic;
+using Hwdtech;
 using Hwdtech.Ioc;
+using Moq;
 
 namespace SpaceBattle.Lib.Tests;
 
-public class ActionCommand :SpaceBattle.Lib.ICommand
+public class ActionCommand : Lib.ICommand
 {
     private readonly Action _action;
     public ActionCommand(Action action)
@@ -36,21 +38,19 @@ public class StartMoveCommandTests
     }
 
     [Fact]
-    public void Positive_Test()
+    public void Execute_RegistersTargetsAndPushesMovingCommand_WhenCalled()
     {
-        var movingCommandMock = new Mock<SpaceBattle.Lib.ICommand>();
+        var movingCommandMock = new Mock<Lib.ICommand>();
         var commandMock = new Mock<Lib.ICommand>();
         var queueMock = new Mock<IQueue>();
-        var injMock = new Mock<SpaceBattle.Lib.ICommand>();
 
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Game.Operation.Move", (object[] args) => movingCommandMock.Object).Execute();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "command", (object[] args) => commandMock.Object).Execute();
         IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Game.Queue", (object[] args) => queueMock.Object).Execute();
-        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Commands.Injectable", (object[] args) => injMock.Object).Execute();
 
         _startMoveCommand.Execute();
 
         _moveCommandStartableMock.Verify(m => m.property, Times.Once());
-        queueMock.Verify(q => q.Enqueue(It.IsAny<SpaceBattle.Lib.ICommand>()), Times.Once());
+        queueMock.Verify(q => q.Enqueue(It.IsAny<Lib.ICommand>()), Times.Once());
     }
 }
