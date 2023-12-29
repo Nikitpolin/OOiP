@@ -1,8 +1,7 @@
-﻿namespace SpaceBattle.Lib
+namespace Spacebattle.Lib;
+
+public interface IQueue 
 {
-    public interface IQueue
-    {
-        void Enqueue(ICommand cmd);
-        ICommand Dequeue();
-    }
+    void Add(ICommand cmd);
+    ICommand Take();
 }

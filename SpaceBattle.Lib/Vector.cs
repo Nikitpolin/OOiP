@@ -1,58 +1,59 @@
-﻿namespace SpaceBattle.Lib;
+﻿using System;
+namespace Spacebattle.Lib;
 
 public class Vector
 {
-    private readonly int[] _coordinates;
-    public int Size => _coordinates.Length;
-
-    public Vector(params int[] coordinates)
+    private readonly int[] _values;
+    public int Size => _values.Length;
+    
+    public Vector(params int[] values)
     {
-        if (coordinates.Length == 0)
-        {
-            throw new ArgumentException();
-        }
-
-        _coordinates = coordinates;
+        _values = values ?? throw new ArgumentNullException(nameof(values));
     }
 
-    public static Vector operator +(Vector a, Vector b)
+    public static Vector operator +(Vector left, Vector right)
     {
-        if (a.Size != b.Size)
-        {
-            throw new System.ArgumentException();
-        }
-
-        return new Vector(a._coordinates.Zip(b._coordinates, (a, b) => a + b).ToArray());
-
+        if (left.Size != right.Size)
+            throw new InvalidOperationException("Размеры векторов не совпадают");
+        var resultValues = left._values.Zip(right._values, (a, b) => a + b).ToArray();
+        var result = new Vector(resultValues);
+        return result;
     }
 
-    public static bool operator ==(Vector a, Vector b)
+    public static Vector operator -(Vector left, Vector right)
     {
-        if (a.Size != b.Size)
-        {
-            throw new System.ArgumentException();
-        }
-
-        return b.Equals(a);
+        if (left.Size != right.Size)
+            throw new InvalidOperationException("Размеры векторов не совпадают");
+        var resultValues = left._values.Zip(right._values, (a, b) => a - b).ToArray();
+        var result = new Vector(resultValues);
+        return result;
     }
 
-    public static bool operator !=(Vector a, Vector b)
+    public static Vector Concat(Vector left, Vector right)
     {
-        if (a.Size != b.Size)
-        {
-            throw new System.ArgumentException();
-        }
-
-        return !(a == b);
+        var resultValue = left._values.Concat(right._values).ToArray();
+        var resultVector = new Vector(resultValue);
+        
+        return resultVector; 
     }
 
-    public override int GetHashCode()
+    public static IEnumerator<int> GetEnumerator(Vector v)
     {
-        return _coordinates.GetHashCode();
+        var array = v._values;
+
+        return ((IEnumerable<int>)array).GetEnumerator(); 
     }
 
     public override bool Equals(object? obj)
     {
-        return obj is Vector vector && _coordinates.SequenceEqual(vector._coordinates);
+        var otherVector = obj as Vector;
+        return otherVector!._values.SequenceEqual(_values);
+    }
+
+    public override int GetHashCode()
+    {
+        int hash = 17;
+        hash = _values.Aggregate((hash, value) => hash * 23 + value.GetHashCode());
+        return hash;
     }
 }
