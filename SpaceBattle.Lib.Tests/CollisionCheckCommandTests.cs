@@ -1,7 +1,6 @@
 ﻿using Hwdtech;
 using Hwdtech.Ioc;
 using Moq;
-using SpaceBattle.Lib;
 
 namespace SpaceBattle.Lib.Tests;
 public class DetectCollisionCommandTest
