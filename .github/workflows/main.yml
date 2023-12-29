@@ -2,7 +2,7 @@ name: Main
 
 on:
   push:
-    branches: ['lab3_']
+    branches: ['laba3_']
   
   pull_request:
     branches: ['main']
