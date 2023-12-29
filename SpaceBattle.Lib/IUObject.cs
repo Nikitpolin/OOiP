@@ -1,8 +1,7 @@
-namespace SpaceBattle.Lib
+namespace Spacebattle.Lib;
+
+public interface IUObject
 {
-    public interface IUObject
-    {
-        public object GetProperty(string name);
-        object SetProperty(string v, object velocity);
-    }
+    public object GetProperty(string name);
+    public void SetProperty(string name, object value);
 }

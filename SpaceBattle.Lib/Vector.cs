@@ -1,4 +1,3 @@
-﻿using System;
 namespace Spacebattle.Lib;
 
 public class Vector
