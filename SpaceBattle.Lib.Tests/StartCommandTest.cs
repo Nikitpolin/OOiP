@@ -1,54 +1,65 @@
 ﻿using Hwdtech;
 using Hwdtech.Ioc;
+using Moq;
 
 namespace SpaceBattle.Lib.Tests;
 
-public class ActionCommand : Lib.ICommand
+public class LongOperationTest
 {
-    private readonly Action _action;
-    public ActionCommand(Action action)
-    {
-        _action = action;
-    }
-
-    public void Execute()
-    {
-        _action();
-    }
-}
-public class StartMoveCommandTests
-{
-    private readonly Mock<IMoveCommandStartable> _moveCommandStartableMock;
-    private readonly Mock<IUObject> _uObjectMock;
-    private readonly StartMoveCommand _startMoveCommand;
-
-    public StartMoveCommandTests()
-    {
-        new InitScopeBasedIoCImplementationCommand().Execute();
-
-        _moveCommandStartableMock = new Mock<IMoveCommandStartable>();
-        _uObjectMock = new Mock<IUObject>();
-
-        _moveCommandStartableMock.Setup(m => m.target).Returns(_uObjectMock.Object);
-        _moveCommandStartableMock.Setup(m => m.property).Returns(new Dictionary<string, object>());
-
-        _startMoveCommand = new StartMoveCommand(_moveCommandStartableMock.Object);
-    }
-
     [Fact]
-    public void Execute_RegistersTargetsAndPushesMovingCommand_WhenCalled()
+    public void RegistersCommandAndQueue_WhenAddingItIntoQueue_ThenCompareTakenAndGivenCommands()
     {
-        var movingCommandMock = new Mock<Lib.ICommand>();
-        var commandMock = new Mock<Lib.ICommand>();
-        var queueMock = new Mock<IQueue>();
+        // making 'IoC.Register' start working
+        new InitScopeBasedIoCImplementationCommand().Execute();  
+        
+        IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();
+        
+        var moveCommandStartable = new Mock<IMoveCommandStartable>(); 
+        // initialize properties for mock object
+        moveCommandStartable.SetupGet(mcs => mcs.Target).Returns( new Mock<IUObject>().Object ); 
+        moveCommandStartable.SetupGet(mcs => mcs.Property).Returns( new Dictionary<string, object>() );  
 
-        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Game.Operation.Move", (object[] args) => movingCommandMock.Object).Execute();
-        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "command", (object[] args) => commandMock.Object).Execute();
-        IoC.Resolve<Hwdtech.ICommand>("IoC.Register", "Game.Queue", (object[] args) => queueMock.Object).Execute();
+        var startMoveCommand = new StartMoveCommand(moveCommandStartable.Object);
 
-        _startMoveCommand.Execute();
+        // IQueue mocking 
+        var qMock = new Mock<IQueue>();
+        var qReal = new Queue<ICommand>();
+        qMock.Setup(q => q.Take()).Returns( () => qReal.Dequeue() );
+        qMock.Setup(q => q.Add(It.IsAny<ICommand>())).Callback(
+            (ICommand cmd) => {
+                qReal.Enqueue(cmd);
+            }
+        );
+        
+        var moveCommand = new Mock<ICommand>().Object;
 
-        _moveCommandStartableMock.Verify(m => m.property, Times.Once());
-        queueMock.Verify(q => q.Enqueue(It.IsAny<Lib.ICommand>()), Times.Once());
+        IoC.Resolve<Hwdtech.ICommand>(
+            "IoC.Register", 
+            "Game.Commands.Move", 
+            (object[] args)=> {
+                return moveCommand;
+            }
+        ).Execute();
+
+        IoC.Resolve<Hwdtech.ICommand>(
+            "IoC.Register", 
+            "Game.Commands.Injectable", 
+            (object[] args)=> {
+                return moveCommand;
+            }
+        ).Execute();
+
+        IoC.Resolve<Hwdtech.ICommand>(
+            "IoC.Register", 
+            "Game.Queue", 
+            (object[] args)=> {
+                return qMock.Object;
+            }
+        ).Execute();
+
+
+        startMoveCommand.Execute();
+        
+        Assert.Equal(moveCommand, qMock.Object.Take());
     }
 }

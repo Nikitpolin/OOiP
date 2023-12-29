@@ -1,8 +1,8 @@
-﻿namespace SpaceBattle.Lib
+﻿namespace SpaceBattle.Lib;
+
+public interface IMoveCommandStartable
 {
-    public interface IMoveCommandStartable
-    {
-        public IUObject target { get; }
-        public Dictionary<string, object> property { get; }
-    }
+    public IUObject Target { get;}
+    public Dictionary<string, object> Property { get;}
+    
 }

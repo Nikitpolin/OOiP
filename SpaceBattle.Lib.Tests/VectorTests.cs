@@ -1,100 +1,83 @@
-﻿namespace SpaceBattle.Lib.Test
+﻿using System.Collections;
+
+namespace SpaceBattle.Lib.Tests;
+
+public class VectorTest
 {
-    public class VectorTests
+    [Fact]
+    public void EqualsAndHashCodeSymmetic()
     {
-        [Fact]
-        public void NullVector()
-        {
-            Assert.Throws<ArgumentException>(() => new Vector());
-        }
+        Vector a = new(12, 7);
+        Vector b = new(12, 7);
+        Assert.Equal(a, b);
+        Assert.True(a.GetHashCode() == b.GetHashCode());
+    }
 
-        [Fact]
-        public void SumSameSize()
-        {
-            Vector a = new(0, 1);
-            Vector b = new(2, 3);
-            Assert.True(a + b == new Vector(2, 4));
-        }
+    [Fact]
+    public void NotEqualsAndHashCodeSymmetic()
+    {
+        Vector a = new(12, 7);
+        Vector b = new(7, 12);
+        Assert.NotEqual(a, b);
+        Assert.False(a.GetHashCode() == b.GetHashCode());
+    }
 
-        [Fact]
-        public void AddDifferentSize()
-        {
-            Vector a = new(1, 2, 3);
-            Vector b = new(3, 4);
+    [Fact]
+    public void DifferentSizesError()
+    {
+        Vector a = new(12, 7, 3);
+        Vector b = new(12, 7);
+        Assert.Throws<InvalidOperationException>(() => a + b);
+    }
 
-            Assert.Throws<ArgumentException>(() => a + b);
-        }
+    [Fact]
+    public void ZeroArguments()
+    {
+        int[]? ints = null;
+        Assert.Throws<ArgumentNullException>(() => new Vector(ints!));
+    }
 
-        [Fact]
-        public void CompareOneSizeVectorsWithDifferentCoords()
-        {
-            Vector a = new(0, 1);
-            Vector b = new(0, 2);
+    [Fact]
+    public void DifferentSizesErrorSubstraction()
+    {
+        Vector a = new(12, 7, 3);
+        Vector b = new(12, 7);
+        Assert.Throws<InvalidOperationException>(() => a - b);
+    }
 
-            Assert.False(a == b);
-        }
+    [Fact]
+    public void SubsractTwoVectorsGetAnother()
+    {
+        Vector a = new(12, 7, 3);
+        Vector b = new(10, 5, 1);
+        
+        Vector expected = new(2, 2, 2);
+        Vector actual = a-b;
 
-        [Fact]
-        public void CompareOneSizeVectorsWithSameCoords()
-        {
-            Vector a = new(0, 1);
-            Vector b = new(0, 1);
+        Assert.Equal(expected, actual);
+    }
 
-            Assert.True(a == b);
-        }
+    [Fact]
+    public void ConcatTwoVectorsGetBiggerOne()
+    {
+        Vector a = new(1, 2);
+        Vector b = new(3, 4, 5);
+        
+        Vector expected = new(1, 2, 3, 4, 5);
+        Vector actual = Vector.Concat(a,b);
 
-        [Fact]
-        public void CompareDifferentSizeVectors()
-        {
-            Vector a = new(0, 1, 2);
-            Vector b = new(0, 2);
+        Assert.Equal(expected, actual);
+    }
 
-            Assert.Throws<ArgumentException>(() => a == b);
-        }
+     [Fact]
+    public void GetVectorEnumerator()
+    {
+        int[] initialArray = new int[] {1,2};
+        Vector v = new Vector(initialArray);
+        
+        IEnumerator expected = ((IEnumerable<int>)initialArray).GetEnumerator();
+        var actual = Vector.GetEnumerator(v);
 
-        [Fact]
-        public void NotCompareOneSizeVectorsWithSameCoords()
-        {
-            Vector a = new(0, 1);
-            Vector b = new(0, 1);
-
-            Assert.False(a != b);
-        }
-
-        [Fact]
-        public void NotCompareOneSizeVectorsWithDifferentCoords()
-        {
-            Vector a = new(0, 1);
-            Vector b = new(0, 2);
-
-            Assert.True(a != b);
-        }
-
-        [Fact]
-        public void NotCompareDifferentSizeVectors()
-        {
-            Vector a = new(0, 1, 2);
-            Vector b = new(0, 2);
-
-            Assert.Throws<ArgumentException>(() => a != b);
-        }
-
-        [Fact]
-        public void VGetHashCode()
-        {
-            Vector a = new(0, 1);
-            var code = a.GetHashCode();
-            Assert.Equal(code, a.GetHashCode());
-        }
-
-        [Fact]
-        public void EqualTwoDiffThings()
-        {
-            Vector a = new(0, 1);
-            var b = new int[] { 0, 1 };
-            var Res = a.Equals(b);
-
-            Assert.Equal(a.Equals(b), Res);
-        }
+        Assert.Equal(expected.GetType(), actual.GetType());
     }
 }

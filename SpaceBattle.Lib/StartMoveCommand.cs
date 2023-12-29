@@ -1,20 +1,24 @@
 ﻿using Hwdtech;
 
-namespace SpaceBattle.Lib
+namespace SpaceBattle.Lib;
+
+public class StartMoveCommand: ICommand
 {
-    public class StartMoveCommand : ICommand
+    private readonly IMoveCommandStartable _moveCommandStartable;
+
+    public StartMoveCommand(IMoveCommandStartable moveCommand) =>  _moveCommandStartable = moveCommand;
+
+    public void Execute()
     {
-        private readonly IMoveCommandStartable moveCommandStartable;
-        public StartMoveCommand(IMoveCommandStartable movableCommand)
-        {
-            moveCommandStartable = movableCommand;
-        }
-        public void Execute()
-        {
-            moveCommandStartable.property.ToList().ForEach(p => moveCommandStartable.target.SetProperty(p.Key, p.Value));
-            var command = IoC.Resolve<ICommand>("Game.Operation.Move", moveCommandStartable.target);
-            moveCommandStartable.target.SetProperty("command", command);
-            IoC.Resolve<IQueue>("Game.Queue").Enqueue(command);
-        }
+        _moveCommandStartable.Property.ToList().ForEach(p => _moveCommandStartable.Target.SetProperty(p.Key, p.Value)); // 1. Присвоение свойств.
+        
+        var cmd = IoC.Resolve<ICommand>("Game.Commands.Move", _moveCommandStartable.Target); // 2. cmd = Конструивание длительной операции (IoC.Resolve<ICommand>("Game.Operation.Move"))
+
+        var injectableCommand = IoC.Resolve<ICommand>("Game.Commands.Injectable", cmd); // inject - обёртка 
+
+        _moveCommandStartable.Target.SetProperty("InjectableCommand", injectableCommand); // 3. Закинуть длительную операцию в таргет
+        
+        IoC.Resolve<IQueue>("Game.Queue").Add(cmd); // 4. cmd закинуть в очередь
+
     }
 }
