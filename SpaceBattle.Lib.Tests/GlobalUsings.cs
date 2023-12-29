@@ -1,2 +1,1 @@
-global using Xunit;
-global using SpaceBattle.Lib;
+﻿global using Xunit;
