@@ -101,7 +101,7 @@ public class DetectCollisionCommandTest
     }
 
     [Fact]
-    public void ThereIsNoCollisionTest()
+    public static void ThereIsNoCollisionTest()
     {
         InitialState();
 
