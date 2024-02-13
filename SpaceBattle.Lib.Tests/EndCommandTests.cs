@@ -6,7 +6,7 @@ namespace SpaceBattle.Lib.Tests
 {
     public class EndCommandTests
     {
-        private static void EndCommandStartTest()
+        public static void EndCommandStartTest()
         {
             new InitScopeBasedIoCImplementationCommand().Execute();
             IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", IoC.Resolve<object>("Scopes.New", IoC.Resolve<object>("Scopes.Root"))).Execute();
