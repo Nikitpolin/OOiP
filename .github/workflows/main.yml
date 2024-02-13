@@ -5,7 +5,7 @@ on:
     branches: ['laba**']
 
   pull_request:
-    branches: ['rotation']
+    branches: ['main']
 
 
 jobs:
