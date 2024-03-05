@@ -1,6 +1,7 @@
 using Hwdtech;
 using Moq;
 using Hwdtech.Ioc;
+using Xunit;
 
 namespace SpaceBattle.Lib.Tests
 {

@@ -26,3 +26,4 @@ jobs:
 
       - name: SpaceBattle test
         run: cd ./SpaceBattle.Lib.Tests/ && dotnet test /p:CollectCoverage=true
+        
