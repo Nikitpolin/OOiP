@@ -1,6 +1,4 @@
-﻿using Hwdtech;
-
-namespace SpaceBattle.Lib;
+﻿namespace SpaceBattle.Lib;
 
 public class HardStop : ICommand
 {
@@ -12,8 +10,13 @@ public class HardStop : ICommand
 
     public void Execute()
     {
-        var id = IoC.Resolve<int>("Get ID", _thread);
-        var stop_cmd = IoC.Resolve<ICommand>("CreateHardStopCommand", id);
-        IoC.Resolve<ICommand>("HardStop", id, stop_cmd).Execute();
+        if (_thread.Equals(Thread.CurrentThread))
+        {
+            _thread.Stop();
+        }
+        else
+        {
+            throw new Exception("Wrong Thread");
+        }
     }
 }

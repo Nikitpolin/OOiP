@@ -1,54 +1,78 @@
 ﻿using System.Collections.Concurrent;
+using Hwdtech;
 
 namespace SpaceBattle.Lib;
+
 public class ServerThread
 {
-    public required BlockingCollection<ICommand> _q;
-    private bool _stop;
-    public required Thread _thread;
-    private Action? _behaviour;
-    public void ServerThreadthread(BlockingCollection<ICommand> q)
+    private readonly BlockingCollection<ICommand> _queue;
+    private readonly Thread _thread;
+    private bool _stop = false;
+    private Action _behavior;
+    private readonly object _scope;
+
+    public ServerThread(BlockingCollection<ICommand> queue, object scope)
     {
-        _q = q;
-        _behaviour = () =>
+        _scope = scope;
+        _queue = queue;
+        _behavior = () =>
         {
-            while (!_stop)
+            var cmd = _queue.Take();
+            try
             {
-                var cmd = q.Take();
-                try
-                {
-                    cmd.Execute();
-                }
-                catch (Exception)
-                {
-                    Console.WriteLine("Поймал ошибку!");
-                }
+                cmd.Execute();
+            }
+            catch (Exception e)
+            {
+                IoC.Resolve<ICommand>("ExceptionHandler.Handle", cmd, e).Execute();
             }
         };
         _thread = new Thread(() =>
         {
+            IoC.Resolve<Hwdtech.ICommand>("Scopes.Current.Set", _scope).Execute();
+
             while (!_stop)
             {
-                _behaviour();
+                _behavior();
             }
         });
+
     }
 
     public void Start()
     {
         _thread.Start();
     }
-
-    public void Stop()
+    internal void Stop()
     {
         _stop = true;
     }
-
-    internal void UpdateBehaviour(Action NewBehaviour)
+    public void UpdateBehaviour(Action newBehavior)
     {
-        _behaviour = NewBehaviour;
+        _behavior = newBehavior;
     }
-    // запуск энпоинта
-    // определение кол-ва потоков
+    public override bool Equals(object? obj)
+    {
+        if (obj == null)
+        {
+            return false;
+        }
 
+        if (obj.GetType() == typeof(Thread))
+        {
+            return _thread == (Thread)obj;
+        }
+
+        if (GetType() != obj.GetType())
+        {
+            return false;
+        }
+
+        return false;
+    }
+
+    public override int GetHashCode()
+    {
+        return _thread.GetHashCode();
+    }
 }
