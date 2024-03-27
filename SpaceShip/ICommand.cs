@@ -1,4 +1,4 @@
-namespace  _ICommand;
+namespace _ICommand;
 
 public interface ICommand
 {
