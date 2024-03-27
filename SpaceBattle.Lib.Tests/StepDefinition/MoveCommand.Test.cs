@@ -1,6 +1,6 @@
-namespace SpaceShip.Tests;
+namespace _SpaceBattle.Lib.Tests;
 using _IMovable;
-using _SpaceShip;
+using _SpaceBattle.Lib;
 using _Vector;
 using Moq;
 using TechTalk.SpecFlow;

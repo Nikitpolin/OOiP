@@ -10,7 +10,7 @@
 // ------------------------------------------------------------------------------
 #region Designer generated code
 #pragma warning disable
-namespace SpaceShip.Tests
+namespace SpaceBattle.Lib.Tests
 {
     using TechTalk.SpecFlow;
     using System;
@@ -31,7 +31,7 @@ namespace SpaceShip.Tests
 #line 1 "Move.feature"
 #line hidden
         
-        public ДвижениеFeature(ДвижениеFeature.FixtureData fixtureData, SpaceShip_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
+        public ДвижениеFeature(ДвижениеFeature.FixtureData fixtureData, SpaceBattle_Lib_Tests_XUnitAssemblyFixture assemblyFixture, Xunit.Abstractions.ITestOutputHelper testOutputHelper)
         {
             this._testOutputHelper = testOutputHelper;
             this.TestInitialize();

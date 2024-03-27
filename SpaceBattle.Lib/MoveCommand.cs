@@ -1,6 +1,6 @@
 ﻿using _ICommand;
 using _IMovable;
-namespace _SpaceShip;
+namespace _SpaceBattle.Lib;
 
 public class MoveCommand : ICommand
 {
