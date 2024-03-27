@@ -1,4 +1,6 @@
-﻿namespace SpaceShip;
+﻿using _ICommand;
+using _IMovable;
+namespace _SpaceShip;
 
 public class MoveCommand : ICommand
 {
@@ -9,6 +11,6 @@ public class MoveCommand : ICommand
     }
     public void Execute()
     {
-        movable.Position += movable.Velocity;
+        movable.Location += movable.Velosity;
     }
 }
