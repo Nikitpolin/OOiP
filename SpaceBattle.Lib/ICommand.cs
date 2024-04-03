@@ -1,4 +1,4 @@
-namespace SpaceShip;
+namespace _ICommand;
 
 public interface ICommand
 {

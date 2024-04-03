@@ -1,4 +1,4 @@
-namespace SpaceShip;
+namespace _Vector;
 
 public class Vector
 {
