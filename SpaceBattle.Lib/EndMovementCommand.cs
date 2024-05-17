@@ -13,7 +13,7 @@ namespace SpaceBattle.Lib
             IoC.Resolve<string>("Game.UObject.DeleteProperty", _endable.target, _endable.property);
             var command = _endable.command;
             var emptyCommand = IoC.Resolve<ICommand>("Game.Command.EmptyCommand");
-            IoC.Resolve<IInjectable>("Game.Command.Inject", command, emptyCommand);
+            IoC.Resolve<IInjectable>("Game.Command.Inject", command, emptyCommand).Execute();
         }
     }
 }
